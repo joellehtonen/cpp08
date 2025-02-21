@@ -1,0 +1,35 @@
+ARRAY
+- ordered in order of insertion (no sorting)
+- can have duplicates
+- elements can be accessed via index
+
+VECTOR
+- ordered in order of insertion (no sorting)
+- can have duplicates
+- elements can be accessed via index
+- resizable
+
+STACK
+ - ordered in lifo (last in, first out)
+ - can have duplicates
+
+ QUEUE
+ - ordered in fifo (first in, first out)
+ - elements are added at the back (push) and removed from the front (pop)
+
+DEQUE
+- elements can be added at the back (push_back) or front (push_front), 
+	and removed from back (pop_back) or front (pop_front)
+ - can be accessed via index (random access)
+
+
+
+SET (NO NEED TO HANDLE)
+- sorts elements ascending order
+- duplicates removed
+- elements cannot be accessed via index, must use iterator
+
+MAP (NO NEED TO HANDLE)
+- like SET, but with key/value pairs
+- keys sorted in ascending order
+- no duplicate keys
