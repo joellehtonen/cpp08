@@ -2,12 +2,26 @@ ARRAY
 - ordered in order of insertion (no sorting)
 - can have duplicates
 - elements can be accessed via index
+- supports initialization
 
 VECTOR
 - ordered in order of insertion (no sorting)
 - can have duplicates
 - elements can be accessed via index
 - resizable
+- supports initialization
+
+DEQUE
+- elements can be added at the back (push_back) or front (push_front), 
+	and removed from back (pop_back) or front (pop_front)
+ - can be accessed via index (random access)
+
+ LIST 
+ - supports initialization
+ - no random access (via index)
+
+
+
 
 STACK
  - ordered in lifo (last in, first out)
@@ -16,12 +30,6 @@ STACK
  QUEUE
  - ordered in fifo (first in, first out)
  - elements are added at the back (push) and removed from the front (pop)
-
-DEQUE
-- elements can be added at the back (push_back) or front (push_front), 
-	and removed from back (pop_back) or front (pop_front)
- - can be accessed via index (random access)
-
 
 
 SET (NO NEED TO HANDLE)

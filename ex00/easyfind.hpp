@@ -3,40 +3,61 @@
 #include <iostream>
 #include <exception>
 #include <algorithm>
-#include <array>
-#include <vector>
 #include <iterator>
+#include <iomanip>
 #define RESET "\033[0m"
+#define BOLD "\033[1m"
 #define GREEN "\033[32m"
+#define RED "\033[31m"
 
 template <typename T>
-void printContainer(const T& container, typename T::const_iterator it)
+void printContainer(const T& container, typename T::const_iterator ref, size_t maxLen)
 {
-	for (size_t i = 0; i < container.size(); i++)
+	int newline = 0;
+	for (typename T::const_iterator iter = container.begin(); iter != container.end(); iter++)
 	{
-		for (int j = 0; j < 5; j++)
-		{
-			std::cout << " [ ";
-			if (std::next(container.begin(), i) == it)
-				std::cout << GREEN << container[i] << RESET;
-			else
-				std::cout << container[i];
-			std::cout << " ] ";
-			i++;
-		}
-		std::cout << "\n";
+		if (newline % 5 == 0)
+			std::cout << "\n";
+		std::cout << " [ ";
+		if (iter == ref)
+			std::cout << BOLD << GREEN << std::setw(maxLen) << *iter << RESET;
+		else
+			std::cout << std::setw(maxLen) << *iter;
+		std::cout << " ] ";
+		newline++;
 	}
+	std::cout << std::endl;
 };
 
 template <typename T>
-auto easyfind(const T& haystack, const int& needle)
+size_t findDigitLen (const T& container)
 {
-	auto it = std::find(haystack.begin(), haystack.end(), needle);
+	size_t maxLen = 0;
+	for (typename T::const_iterator iter = container.begin(); iter != container.end(); iter++)
+	{
+		size_t len = std::to_string(*iter).length();
+		if (len > maxLen)
+			maxLen = len;
+	}
+	return maxLen;
+}
+
+template <typename T>
+typename T::const_iterator easyfind(const T& haystack, const int& needle)
+{
+	typename T::const_iterator it;
+	it = std::find(haystack.begin(), haystack.end(), needle);
 	if (it == haystack.end())
+	{
+		size_t maxLen = findDigitLen(haystack);
+		printContainer(haystack, it, maxLen);
 		throw std::runtime_error("Integer not found");
+	}
 	else
 	{
-		printContainer(haystack, it);
+		std::cout << "Integer found";
+		size_t maxLen = findDigitLen(haystack);
+		printContainer(haystack, it, maxLen);
 		return it;
 	}
 };
