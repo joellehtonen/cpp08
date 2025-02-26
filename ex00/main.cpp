@@ -60,7 +60,7 @@ int main(void)
 	i = 0;
 	std::deque<int> intDeque;
 	std::random_device device;
-	size_t toFind = 0;
+	int toFind = 0;
 	for (int i = 0; i < 20; i++)
 	{
 		size_t seed = device();

@@ -20,7 +20,9 @@ void printContainer(const T& container, typename T::const_iterator ref, size_t m
 			std::cout << "\n";
 		std::cout << " [ ";
 		if (iter == ref)
+		{
 			std::cout << BOLD << GREEN << std::setw(maxLen) << *iter << RESET;
+		}
 		else
 			std::cout << std::setw(maxLen) << *iter;
 		std::cout << " ] ";
