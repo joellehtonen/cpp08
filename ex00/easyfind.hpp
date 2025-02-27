@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iterator>
 #include <iomanip>
+#include <type_traits>
 #define RESET "\033[0m"
 #define BOLD "\033[1m"
 #define GREEN "\033[32m"
@@ -32,7 +33,7 @@ void printContainer(const T& container, typename T::const_iterator ref, size_t m
 };
 
 template <typename T>
-size_t findDigitLen (const T& container)
+size_t findLongestDigit (const T& container)
 {
 	size_t maxLen = 0;
 	for (typename T::const_iterator iter = container.begin(); iter != container.end(); iter++)
@@ -58,7 +59,7 @@ typename T::const_iterator easyfind(const T& haystack, const int& needle)
 	else
 	{
 		std::cout << "Integer found";
-		size_t maxLen = findDigitLen(haystack);
+		size_t maxLen = findLongestDigit(haystack);
 		printContainer(haystack, it, maxLen);
 		return it;
 	}

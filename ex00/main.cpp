@@ -14,7 +14,7 @@ int main(void)
 	// 	int t = test[i];
 	for (int t : test1)
 	{
-		std::cout << "\n===ARRAY TEST #" << i++ << "===\n";
+		std::cout << "\n=== ARRAY TEST #" << i++ << " ===\n";
 		std::cout << "Searching for " << t << "\n";
 		try {
 			easyfind(intArray, t);
@@ -29,7 +29,7 @@ int main(void)
 	i = 0;
 	for (int t : test2)
 	{
-		std::cout << "\n===VECTOR TEST #" << i++ << "===\n";
+		std::cout << "\n=== VECTOR TEST #" << i++ << " ===\n";
 		std::cout << "Searching for " << t << "\n";
 		try {
 			easyfind(intVector, t);
@@ -46,9 +46,9 @@ int main(void)
 		intList.push_back(l);
 		l  += 1;
 	}
-	int test3 = 33;
+	int test3 = 66;
 	i = 0;
-	std::cout << "\n===LIST TEST #" << i++ << "===\n";
+	std::cout << "\n=== LIST TEST #" << i++ << " ===\n";
 	std::cout << "Searching for " << test3 << "\n";
 	try {
 		easyfind(intList, test3);
@@ -60,18 +60,58 @@ int main(void)
 	i = 0;
 	std::deque<int> intDeque;
 	std::random_device device;
-	int toFind = 0;
+	int seed = device();
+	std::srand(seed);
+	int toFind1 = 0;
 	for (int i = 0; i < 20; i++)
 	{
-		size_t seed = device();
-		intDeque.push_back(seed);
-		if (seed % 10 == 0)
-			toFind = seed;
+		int random = std::rand();
+		intDeque.push_back(random);
+		if (random % 10 == 0)
+			toFind1 = random;
 	}
-	std::cout << "\n===DEQUE TEST #" << i++ << "===\n";
-	std::cout << "Searching for " << toFind << "\n";
+	std::cout << "\n=== DEQUE TEST #" << i++ << " ===\n";
+	std::cout << "Searching for " << toFind1 << "\n";
 	try {
-		easyfind(intDeque, toFind);
+		easyfind(intDeque, toFind1);
+	}
+	catch (std::exception& e) {
+		std::cout << "Error. " << e.what() << std::endl;
+	};
+
+	intDeque.clear();
+	int toFind2 = 0;
+	for (int i = 0; i < 20; i++)
+	{
+		int random = std::rand() % 100;
+		intDeque.push_back(random);
+		if (random % 10 == 0)
+			toFind2 = random;
+	}
+	std::cout << "\n=== DEQUE TEST #" << i++ << " ===\n";
+	std::cout << "Searching for " << toFind2 << "\n";
+	try {
+		easyfind(intDeque, toFind2);
+	}
+	catch (std::exception& e) {
+		std::cout << "Error. " << e.what() << std::endl;
+	};
+
+	intDeque.clear();
+	std::uniform_int_distribution<int>range(-1000, 1000);
+	std::mt19937 generator(seed);
+	int toFind3 = 0;
+	for (int i = 0; i < 20; i++)
+	{
+		int random = range(generator);
+		intDeque.push_back(random);
+		if (random % 10 == 0)
+			toFind3 = random;
+	}
+	std::cout << "\n=== DEQUE TEST #" << i++ << " ===\n";
+	std::cout << "Searching for " << toFind3 << "\n";
+	try {
+		easyfind(intDeque, toFind3);
 	}
 	catch (std::exception& e) {
 		std::cout << "Error. " << e.what() << std::endl;
