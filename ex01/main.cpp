@@ -1,27 +1,20 @@
  #include "Span.hpp"
- #include <random>
 
  int main (void)
  {
-	Span span(150);
-
-	std::random_device device;
-	size_t seed = device();
-	std::mt19937 generator(seed);
-	std::uniform_int_distribution<int>distribution(0, 99);
-
+	Span span(10000);
 	try {
-		for (int i = 0; i < 150; i++)
-		{
-			int random = distribution(generator);
-			span.addNumber(random);
-		}
+		//span.addRandomNumbers(1, 9, 3, true);
+		//span.addRandomNumbers(1, 99, 10, true);
+		span.addRandomNumbers(INT_MIN, INT_MAX, 10000, true);
+		std::cout << "Unsorted container: \n";
 		span.printContainer();
-		std::cout << "Shortest span between two numbers is " << span.shortestSpan() << std::endl;
-		std::cout << "Longest span between two numbers is " << span.longestSpan() << std::endl;
+		std::cout << "Shortest span between two numbers is " << span.shortestSpan() << '\n';
+		std::cout << "Longest span between two numbers is " << span.longestSpan() << '\n';
+		std::cout << "Sorted container: \n";
+		span.printContainer();
 	}
 	catch (std::exception &e) {
 		std::cerr << "Error. " << e.what() << std::endl;
 	}
-
  }
