@@ -1,9 +1,8 @@
-NAME	=	span
+NAME	=	mutantstack
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++20
-SRCS	=	main.cpp \
-			Span.cpp
-HEADER  =	Span.hpp
+SRCS	=	main.cpp
+HEADER  =	Mutantstack.hpp
 OBJS	=	$(SRCS:.cpp=.o)
 
 all: $(NAME)
