@@ -14,16 +14,12 @@
 #define BLUE "\033[34m"
 #define CYAN "\033[36m"
 
-//TODO check if works with int max and int min
-//TODO check if works with small ranges (1-3)
-
 class Span
 {
 	private:
 		unsigned int 		_max;
 		std::vector<int>	_container;
 		size_t				_longestDigit;
-
 		void				findLongestDigit();
 
 	public:
@@ -33,14 +29,21 @@ class Span
 		Span(const Span& copy);
 		Span& operator=(const Span& copy);
 
-		void	addNumber(int number);
-		size_t	shortestSpan();
-		size_t	longestSpan();
-
-		void	printContainer();
-		void	addRandomNumbers(int min, int max, size_t amount, bool unique);
-
+		void		addNumber(int number);
+		size_t		shortestSpan();
+		size_t		longestSpan();
 		const int&	getContainerElement(const int& i) const;
 		void		setContainerElement(const int& index, const int& newElement);
+		void		printContainer();
+		void		addRandomNumbers(int min, int max, size_t amount, bool unique);
 
+		template <typename T>
+		void addRange(typename T::const_iterator begin, typename T::const_iterator end)
+		{
+			size_t distance = std::distance(begin, end);
+			if (distance > this->_max - this->_container.size())
+				throw std::runtime_error("Not enough space left for an insert");
+			else
+				_container.insert(_container.end(), begin, end);
+		}
 };

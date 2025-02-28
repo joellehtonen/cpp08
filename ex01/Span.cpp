@@ -29,7 +29,7 @@ Span& Span::operator=(const Span& copy) {
 void Span::addNumber(int number)
 {
 	if (_container.size() == _max)
-		throw std::runtime_error("Cannot add new elements, the container is already full");
+		throw std::runtime_error("Cannot add elements, the container is full");
 	else
 		_container.push_back(number);
 };
@@ -102,6 +102,9 @@ void Span::addRandomNumbers(int min, int max, size_t amount, bool unique)
 {
 	if (min >= max)
 		throw std::runtime_error("Minimum number cannot be bigger than maximum number");
+	if (unique == true && (int)amount > max - min)
+		throw std::runtime_error("Not enough unique numbers exist in the provided range");
+
 	std::random_device device;
 	size_t seed = device();
 	std::mt19937 generator(seed);
@@ -121,3 +124,4 @@ void Span::addRandomNumbers(int min, int max, size_t amount, bool unique)
 			addNumber(random);
 	}
 };
+
