@@ -1,6 +1,6 @@
 NAME	=	span
 CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++20
+FLAGS	=	-Wall -Wextra -Werror -std=c++20 -ggdb3
 SRCS	=	main.cpp \
 			Span.cpp
 HEADER  =	Span.hpp
