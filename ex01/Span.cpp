@@ -28,7 +28,7 @@ Span& Span::operator=(const Span& copy) {
 
 void Span::addNumber(int number)
 {
-	if (_container.size() == _max)
+	if (_container.size() >= _max)
 		throw std::runtime_error("Cannot add elements, the container is full");
 	else
 		_container.push_back(number);
@@ -50,7 +50,7 @@ size_t Span::longestSpan() {
 	if  (_container.size() < 2)
 		throw std::runtime_error("Too few numbers in the array");
 	std::sort(_container.begin(), _container.end());
-	return (*--_container.end() - *_container.begin());
+	return (static_cast<size_t>(*--_container.end()) - static_cast<size_t>(*_container.begin()));
 };
  
 const int& Span::getContainerElement(const int& i) const

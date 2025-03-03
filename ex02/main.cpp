@@ -3,6 +3,7 @@
 #define BLUE "\033[34m"
 #define PURPLE "\033[35m"
 #define CYAN "\033[36m"
+#define RESET "\033[0m"
 
 int main(void)
 {
@@ -31,7 +32,7 @@ int main(void)
 	std::cout << PURPLE << "printing doubled contents using reverse iterators: \n";
 	while (ritb != rite)
 		std::cout << *ritb++ << '\n';
-		
+	std::cout << RESET;
 }
 
 // //from subject

@@ -26,7 +26,6 @@ int main (void)
 }
 
 
-
 // int main()
 // {
 // 	Span sp = Span(5);

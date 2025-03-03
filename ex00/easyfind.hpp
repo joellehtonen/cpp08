@@ -50,17 +50,13 @@ typename T::const_iterator easyfind(const T& haystack, const int& needle)
 {
 	typename T::const_iterator it;
 	it = std::find(haystack.begin(), haystack.end(), needle);
+	size_t maxLen = findLongestDigit(haystack);
+	printContainer(haystack, it, maxLen);
 	if (it == haystack.end())
-	{
-		size_t maxLen = findLongestDigit(haystack);
-		printContainer(haystack, it, maxLen);
 		throw std::runtime_error("Integer not found");
-	}
 	else
 	{
 		std::cout << "Integer found";
-		size_t maxLen = findLongestDigit(haystack);
-		printContainer(haystack, it, maxLen);
 		return it;
 	}
 };
