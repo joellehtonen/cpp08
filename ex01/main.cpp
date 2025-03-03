@@ -8,8 +8,8 @@ int main (void)
 		span.addRandomNumbers(1, 9, 3, true);
 		// span.addRandomNumbers(1, 99, 10, true);
 		// span.addRandomNumbers(INT_MIN, INT_MAX, 10000, true);
-		// span.addRange<std::vector<int>>(anotherArray.begin(), anotherArray.end());
 		// std::vector<int> anotherArray;
+		// span.addRange<std::vector<int>>(anotherArray.begin(), anotherArray.end());
 		// anotherArray.push_back(1);
 		// anotherArray.push_back(2);
 		// anotherArray.push_back(3);
