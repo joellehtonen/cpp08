@@ -1,7 +1,6 @@
 #include <stack>
-#include <string>
 #include <iostream>
-
+#include <string>
 template <typename T>
 class MutantStack : public std::stack<T>
 {
