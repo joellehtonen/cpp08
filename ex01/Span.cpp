@@ -102,7 +102,7 @@ void Span::addRandomNumbers(int min, int max, size_t amount, bool unique)
 {
 	if (min >= max)
 		throw std::runtime_error("Minimum number cannot be bigger than maximum number");
-	if (unique == true && (int)amount > max - min)
+	if (unique == true && static_cast<int>(amount) > std::abs(max) - std::abs(min))
 		throw std::runtime_error("Not enough unique numbers exist in the provided range");
 
 	std::random_device device;

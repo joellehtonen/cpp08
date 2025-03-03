@@ -5,9 +5,9 @@ int main (void)
 	Span span(10000);
 
 	try {
-		span.addRandomNumbers(1, 9, 3, true);
+		//span.addRandomNumbers(1, 9, 3, true);
 		// span.addRandomNumbers(1, 99, 10, true);
-		// span.addRandomNumbers(INT_MIN, INT_MAX, 10000, true);
+		span.addRandomNumbers(-100, INT_MAX, 10000, true);
 		// std::vector<int> anotherArray;
 		// span.addRange<std::vector<int>>(anotherArray.begin(), anotherArray.end());
 		// anotherArray.push_back(1);

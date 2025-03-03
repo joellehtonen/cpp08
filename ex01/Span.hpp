@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <random>
 #include <climits>
+#include <cstdlib>
 #define RESET "\033[0m"
 #define BOLD "\033[1m"
 #define GREEN "\033[32m"
